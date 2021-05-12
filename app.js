@@ -176,4 +176,5 @@ module.exports = {
   _createElement: _createElement,
   _createElementContent: _createElementContent,
   _appendElement: _appendElement,
+  _switchElementDisplay: _switchElementDisplay,
 };
