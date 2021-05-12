@@ -9,8 +9,7 @@ You need node.js and npm.
 `npm install fp-dom-tool`
 
 ```javascript
-
-import {...fp-dom-tool} from 'fp-dom-tool'
+import _tool from "fp-dom-tool";
 
 module.exports = {
   _getElement: _getElement,
@@ -18,7 +17,7 @@ module.exports = {
   _getElementClass: _getElementClass,
   _createElement: _createElement,
   _createElementContent: _createElementContent,
-  _appendElement: _appendElement
+  _appendElement: _appendElement,
 };
 ```
 
