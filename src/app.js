@@ -103,6 +103,23 @@ const _createElementContent = _PipeElementContent(
   _createContent
 );
 
+/**
+ * Change Display state
+ * @param {string} state
+ * @returns state
+ */
+const _switchDisplay = (state) => {
+  return state === "block" ? { state: "none" } : { state: "block" };
+};
+
+/**
+ * Change the Display state of a given element
+ * @param {*} element
+ */
+const _switchElementDisplay = (element) => () => {
+  element.style.display = _switchDisplay(element.style.display).state;
+};
+
 module.exports = {
   _getElement,
   _getElementID,
