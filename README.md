@@ -12,12 +12,12 @@ You need node.js and npm.
 import _tool from "fp-dom-tool";
 
 module.exports = {
-  _getElement: _getElement,
-  _getElementID: _getElementID,
-  _getElementClass: _getElementClass,
-  _createElement: _createElement,
-  _createElementContent: _createElementContent,
-  _appendElement: _appendElement,
+  _getElement,
+  _getElementID,
+  _getElementClass,
+  _createElement,
+  _createElementContent,
+  _appendElement,
 };
 ```
 
@@ -28,7 +28,7 @@ JS library, help to interact with the DOM with following functions:
 - `_getElement` get element of the DOM. Option to add `prefix` in or to set partial curring.
 
 ```javascript
-const paragraph = _getElement("p")
+const paragraph = _tool._getElement("p")
 const paragraph(".example")
 //Get the first <p> element in the document with class="example":
 ```
@@ -39,8 +39,8 @@ const paragraph(".example")
 - `_createElement` create a type element. Option to add attributes. Any new addtional attributes had to be in the form `[name, value]`
 
 ```javascript
-const newP = _createElement("div"); // return element <div></div>
-const newDiv = _createElement("img")(
+const newP = _tool._createElement("div"); // return element <div></div>
+const newDiv = _tool._createElement("img")(
   ["class", "class-1 class-2"],
   ["id", "divId"]
 ); // return element <img id="divId" class="class-1 class-2">
@@ -49,7 +49,7 @@ const newDiv = _createElement("img")(
 - `_createElementContent` create a type element with a text node. Option to add attributes. Any new addtional attributes had to be in the form `[name, value]`
 
 ```javascript
-const newP = _createElementContent("h1")(["class", "class-1 class-2"])('A ramdom title';
+const newP = _tool._createElementContent("h1")(["class", "class-1 class-2"])('A ramdom title';
 // return element <h1 class='class-1 class-2'>A ramdom title</h1>
 ```
 
