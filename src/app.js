@@ -82,8 +82,13 @@ const _appendElement =
   };
 
 const _PipeElementContent =
-  (createElement, createContent) => (type) => (attributes) => (text) => {
-    return _appendElement(createElement(type)(attributes))(createContent(text));
+  (createElement, createContent) =>
+  (type) =>
+  (...attributes) =>
+  (text) => {
+    return _appendElement(createElement(type)(...attributes))(
+      createContent(text)
+    );
   };
 
 /**

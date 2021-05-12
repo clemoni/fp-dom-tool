@@ -1,11 +1,7 @@
 "use strict";
 
 var compose = function compose() {
-  for (
-    var _len = arguments.length, fns = Array(_len), _key = 0;
-    _key < _len;
-    _key++
-  ) {
+  for (var _len = arguments.length, fns = Array(_len), _key = 0; _key < _len; _key++) {
     fns[_key] = arguments[_key];
   }
 
@@ -25,8 +21,7 @@ var compose = function compose() {
  * @returns element
  */
 var _getElement = function _getElement() {
-  var prefix =
-    arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
+  var prefix = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
   return function (param) {
     var query = !prefix ? "" + param : "" + prefix + param;
     return document.querySelector(query);
@@ -61,19 +56,13 @@ var _createEl = function _createEl(type) {
  */
 var _setAttribute = function _setAttribute(element) {
   return function () {
-    for (
-      var _len2 = arguments.length, attributes = Array(_len2), _key2 = 0;
-      _key2 < _len2;
-      _key2++
-    ) {
+    for (var _len2 = arguments.length, attributes = Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
       attributes[_key2] = arguments[_key2];
     }
 
-    !attributes[0]
-      ? null
-      : attributes.map(function (att) {
-          return element.setAttribute(att[0], att[1]);
-        });
+    !attributes[0] ? null : attributes.map(function (att) {
+      return element.setAttribute(att[0], att[1]);
+    });
     return element;
   };
 };
@@ -103,11 +92,7 @@ var _createContent = function _createContent(text) {
  */
 var _appendElement = function _appendElement(element) {
   return function () {
-    for (
-      var _len3 = arguments.length, children = Array(_len3), _key3 = 0;
-      _key3 < _len3;
-      _key3++
-    ) {
+    for (var _len3 = arguments.length, children = Array(_len3), _key3 = 0; _key3 < _len3; _key3++) {
       children[_key3] = arguments[_key3];
     }
 
@@ -118,16 +103,15 @@ var _appendElement = function _appendElement(element) {
   };
 };
 
-var _PipeElementContent = function _PipeElementContent(
-  createElement,
-  createContent
-) {
+var _PipeElementContent = function _PipeElementContent(createElement, createContent) {
   return function (type) {
-    return function (attributes) {
+    return function () {
+      for (var _len4 = arguments.length, attributes = Array(_len4), _key4 = 0; _key4 < _len4; _key4++) {
+        attributes[_key4] = arguments[_key4];
+      }
+
       return function (text) {
-        return _appendElement(createElement(type)(attributes))(
-          createContent(text)
-        );
+        return _appendElement(createElement(type).apply(undefined, attributes))(createContent(text));
       };
     };
   };
@@ -142,11 +126,11 @@ var _PipeElementContent = function _PipeElementContent(
  */
 var _createElementContent = _PipeElementContent(_createElement, _createContent);
 
-// module.exports = {
-//   _getElement: _getElement,
-//   _getElementID: _getElementID,
-//   _getElementClass: _getElementClass,
-//   _createElement: _createElement,
-//   _createElementContent: _createElementContent,
-//   _appendElement: _appendElement
-// };
+module.exports = {
+  _getElement: _getElement,
+  _getElementID: _getElementID,
+  _getElementClass: _getElementClass,
+  _createElement: _createElement,
+  _createElementContent: _createElementContent,
+  _appendElement: _appendElement
+};
