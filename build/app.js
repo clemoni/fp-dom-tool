@@ -126,6 +126,25 @@ var _PipeElementContent = function _PipeElementContent(createElement, createCont
  */
 var _createElementContent = _PipeElementContent(_createElement, _createContent);
 
+/**
+ * Change Display state
+ * @param {string} state
+ * @returns state
+ */
+var _switchDisplay = function _switchDisplay(state) {
+  return state === "block" ? { state: "none" } : { state: "block" };
+};
+
+/**
+ * Change the Display state of a given element
+ * @param {*} element
+ */
+var _switchElementDisplay = function _switchElementDisplay(element) {
+  return function () {
+    element.style.display = _switchDisplay(element.style.display).state;
+  };
+};
+
 module.exports = {
   _getElement: _getElement,
   _getElementID: _getElementID,
