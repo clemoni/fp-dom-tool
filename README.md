@@ -2,7 +2,27 @@
 
 library to help interacting with DOM - get and create element
 
-## Overview
+## Installation
+
+You need node.js and npm.
+
+`npm install fp-dom-tool`
+
+```javascript
+
+import {...fp-dom-tool} from 'fp-dom-tool'
+
+module.exports = {
+  _getElement: _getElement,
+  _getElementID: _getElementID,
+  _getElementClass: _getElementClass,
+  _createElement: _createElement,
+  _createElementContent: _createElementContent,
+  _appendElement: _appendElement
+};
+```
+
+## Usage
 
 JS library, help to interact with the DOM with following functions:
 
