@@ -39,8 +39,8 @@ const paragraph(".example")
 - `_createElement` create a type element. Option to add attributes. Any new addtional attributes had to be in the form `[name, value]`
 
 ```javascript
-const newP = _tool._createElement("div"); // return element <div></div>
-const newDiv = _tool._createElement("img")(
+const newDiv = _tool._createElement("div")(); // return element <div></div> without attributes
+const newImg = _tool._createElement("img")(
   ["class", "class-1 class-2"],
   ["id", "divId"]
 ); // return element <img id="divId" class="class-1 class-2">
@@ -54,6 +54,17 @@ const newP = _tool._createElementContent("h1")(["class", "class-1 class-2"])('A 
 ```
 
 - `_appendElement` Append child an elment to a Parent element
+```javascript
+  const li = _tool._createElement("li")();
+  const link = _tool._createElement("a")(["href", "https://github.com/clemoni"], ["target", "_blank"]);
+  _tool._appendElement(li)(a);      
+```
+ It creates the following element 
+```html
+  <li>
+    <a href="https://github.com/clemoni" target="_blank"
+  </li>
+```
 
 ## Compatibility
 
